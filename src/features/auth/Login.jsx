@@ -1,22 +1,21 @@
-//create a new <Register> component. Add a /register route tot he router in main.jsx, as well as a new link in <NavigationBar>
-// This component should be a controlled form. Read the documentation to figure out which fields you will need. We will write the from submission handler later.
-// first pull in out useState
+//create a <Login> component as well with corresponding routes. It should be almost identical to <Register>
+
 import { useState } from "react";
 
-function Register() {
+function Login() {
     const [username, setUsername] = useState("");
-    const [passwork, setPassword] = useState("");
+    const [password, setPassword] = useState("");
 
     return (
         <>
-            <h1>Create an Account</h1>
+            <h1>Login</h1>
             <form>
                 <label>
                     Username
                     <input
                         type="text"
                         value={username}
-                        onChange={(e) => setUsername(e.target.value)}
+                        onChange={(e) => setUsername(e.target, value)}
                         autoComplete="username"
                     />
                 </label>
@@ -29,8 +28,10 @@ function Register() {
                         autoComplete="current-password"
                     />
                 </label>
-                <button>Register</button>
+                <button>Login</button>
             </form>
         </>
-    )
+    );
 }
+
+export default Login // now go and add this to navbar file and main.jsx
