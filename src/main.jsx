@@ -12,10 +12,18 @@ import { Provider } from 'react-redux'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import PostDetails from "./features/posts/PostDetails";
 import PostPage from "./features/posts/PostPage";
+//after adding Root.jsx
+import Root from './layout/Root'
 
 const router = createBrowserRouter([
-  { path: "/" || "/posts", element: <PostPage /> }
-  { path: "/posts/:id", element: <PostDetails /> }
+  { //make the cutin and children after Root.jsx in created and imported
+    path: "/",
+    element: <Root />,
+    children: [
+      { path: "/" || "/posts", element: <PostPage /> },
+      { path: "/posts/:id", element: <PostDetails /> }
+    ]
+  }
 ])
 
 

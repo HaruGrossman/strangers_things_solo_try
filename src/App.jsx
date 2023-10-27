@@ -9,3 +9,5 @@ function App() {
 }
 
 export default App;
+
+// made unneccessary after we added the router in main.jsx
