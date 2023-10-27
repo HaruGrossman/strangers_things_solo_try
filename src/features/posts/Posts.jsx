@@ -9,10 +9,8 @@ function Posts() {
 
     return (
         <ul>
-            {posts.map((post) => (
-                { posts?.map((post) => ( //if there is something of posts to map, then map
-                    <Post key={post._id} post={post} />
-                ))}
+            {posts?.map((post) => ( //if there is something of posts to map, then map
+                <Post key={post._id} post={post} />
             ))}
         </ul>
     );
