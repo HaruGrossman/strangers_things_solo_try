@@ -10,9 +10,12 @@ function NavigationBar() {
                 <li>
                     <Link to="/posts">Posts</Link>
                 </li>
+                <li>
+                    <Link to="/register">Register</Link>
+                </li>
             </menu>
         </nav>
     );
 }
 
-export default NavigationBar // now add this to the Root.jsx file
+export default NavigationBar // now add this to the Root.jsx and main.jsx

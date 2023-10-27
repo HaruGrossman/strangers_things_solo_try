@@ -14,6 +14,7 @@ import PostDetails from "./features/posts/PostDetails";
 import PostPage from "./features/posts/PostPage";
 //after adding Root.jsx
 import Root from './layout/Root'
+import Register from "./features/auth/Register"
 
 const router = createBrowserRouter([
   { //make the cutin and children after Root.jsx in created and imported
@@ -21,7 +22,8 @@ const router = createBrowserRouter([
     element: <Root />,
     children: [
       { path: "/" || "/posts", element: <PostPage /> },
-      { path: "/posts/:id", element: <PostDetails /> }
+      { path: "/posts/:id", element: <PostDetails /> },
+      { path: "/register", element: <Register /> } //added after creating register.jsx and added to navbar
     ]
   }
 ])
