@@ -55,8 +55,7 @@ const authSlice = createSlice({
             state.token = null;
             sessionStorage.removeItem(TOKEN_KEY);
         }
-    }
-
+    },
     extraReducers: (builder) => {
         builder.addMatcher(api.endpoints.register.matchFulfilled, storeToken);
         builder.addMatcher(api.endpoints.login.matchFulfilled, storeToken);
