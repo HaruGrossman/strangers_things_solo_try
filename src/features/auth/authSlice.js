@@ -62,6 +62,8 @@ const authSlice = createSlice({
     },
 });
 
+export const { logout } = authSlice.actions;
+
 //the 'auth' key here should match the name of the authSlice
 export const selectToken = (state) => state.auth.token;
 

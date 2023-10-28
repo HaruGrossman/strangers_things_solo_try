@@ -6,7 +6,20 @@ const API_URL = `https://strangers-things.herokuapp.com/api/${COHORT}`; //just l
 
 // this is the central API slice into which all endpoint will be injected (slice headquarters)
 const api = createApi({
-    baseQuery: fetchBaseQuery({ baseUrl: API_URL }),
+    //inject the token into the headers of every request via prepareHeaders
+    baseQuery: fetchBaseQuery({
+        baseUrl: API_URL,
+        prepareHeaders: (headers, { getState }) => {
+            const token = getState().auth.token;
+
+            //if we have a token set in state, lets assume that we should be passing it.
+            if (token) {
+                headers.set("Authorization", `Bearer ${token}`);
+            }
+            return headers;
+        },
+    }),
+
     endpoints: () => ({}),
 });
 
