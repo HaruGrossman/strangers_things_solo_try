@@ -10,8 +10,18 @@ const postApi = api.injectEndpoints({
             //This matches what we passed into "setPosts" in Posts.jsx
             //before the refactor to RTK Query.
             transformResponse: (response) => response.data.posts,
+            //add a "createPost" mutation to "postSlice". Since this will mutate the posts in the API's database, it should invalidate the "Posts" tag. "getPosts" should provide the "Posts" tag.
+            providesTags: ["Posts"],
         }),
+        createPost: builder.mutation({
+            query: (post) => ({
+                url: `/posts`,
+                method: "POST",
+                body: { post },
+            }),
+            invalidatesTags: ["Posts"],
+        })
     }),
 });
 
-export const { useGetPostsQuery } = postsApi; //we are breaking down the function and getting exactly what we want out
+export const { useGetPostsQuery, useCreatePostMutation } = postsApi; //we are breaking down the function and getting exactly what we want out
